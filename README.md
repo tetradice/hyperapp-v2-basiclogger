@@ -14,9 +14,10 @@
 
 ## Usage
 
-Set logger in the "middleware" argument of the `app` function.
+Set logger to the `middleware` argument of the `app` function.
 
 ```jsx
+import { h, app } from "hyperapp";
 import logger from "hyperapp-v2-basiclogger";
 
 app({
@@ -28,6 +29,72 @@ app({
     ),
     node: document.getElementById("app"),
     middleware: logger
+});
+```
+
+## Advanced: custom logger
+
+You can create middleware based on your own logger function by using `createLoggerMiddleware` function. This allows you to change the output format and destination.
+
+```jsx
+import { h, app } from "hyperapp";
+import { createLoggerMiddleware } from "hyperapp-v2-basiclogger";
+
+function customLogger(type, params){
+    switch(type){
+        case "action": // Invoke action
+            // The following parameters are available:
+            // - params.action          (function)
+            // - params.defaultPayload  
+            // - params.payloadCreator  (if you are not using payload creator, it is undefined)
+            // - params.customPayload   (if you do not pass custom payload, it is undefined)
+
+            console.group("Dispatch action:", (params.action.name ? params.action.name : params.action));
+            if(params.payloadCreator !== undefined){
+                console.log("       default payload:", params.defaultPayload);
+                console.log("       payload creator:", params.payloadCreator);
+                console.log("created custom payload:", params.customPayload);
+
+            } else if(params.customPayload !== undefined){
+                console.log("default payload:", params.defaultPayload);
+                console.log(" custom payload:", params.customPayload);
+
+            } else {
+                console.log("default payload:", params.defaultPayload);
+                console.log(" custom payload:", "none");
+            }
+            console.groupEnd();
+
+            break;
+
+        case "state": // Update state
+            // The following parameters are available:
+            // - params.prevState
+            // - params.nextState  
+            // - params.changed    (true if prevState and nextState are different, false otherwise)
+
+            break;
+
+        case "stateAndEffects": // Update state and invoke effects
+            // The following parameters are available:
+            // - params.prevState
+            // - params.nextState  
+            // - params.changed    (true if prevState and nextState are different, false otherwise)
+            // - params.effects
+
+            break;
+    }
+}
+
+app({
+    init: {count: 0},
+    view: state => (
+        <div>
+            ...
+        </div>
+    ),
+    node: document.getElementById("app"),
+    middleware: createLoggerMiddleware(customLogger)
 });
 ```
 
