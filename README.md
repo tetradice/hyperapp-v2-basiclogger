@@ -91,7 +91,7 @@ app({
 ```
 
 ## Contact
-@tetradice ([GitHub Issues](https://github.com/tetradice/hyperapp-typing/issues) or [Twitter](https://twitter.com/tetradice))
+@tetradice ([GitHub Issues](https://github.com/tetradice/hyperapp-v2-basiclogger/issues) or [Twitter](https://twitter.com/tetradice))
 
 
 ## License
