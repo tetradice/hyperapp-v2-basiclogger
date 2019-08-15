@@ -25,7 +25,7 @@ export default function(baseDispatch){
             } else {
                 // without custom payload
                 console.log("default payload:", props);
-                console.log(" custom payload:", 'none');
+                console.log(" custom payload:", "none");
            }
             console.groupEnd();
         } else if (Array.isArray(target)) {
@@ -35,7 +35,7 @@ export default function(baseDispatch){
                 reservedCustomPayload = target[1];
             } else {
                 // Update state and invoke effects
-                console.group("Dispatch new state and Effects");
+                console.group("Dispatch state and Effects");
                 console.log("prev state:", prevState);
                 console.log("next state:", (prevState === target[0] ? '(unchanged)' : target[0]));
                 console.log("   effects:", target.slice(1));
@@ -45,7 +45,7 @@ export default function(baseDispatch){
             }
         } else {
             // Update state
-            console.group("Dispatch new state");
+            console.group("Dispatch state");
             console.log("prev state:", prevState);
             console.log("next state:", (prevState === target ? '(unchanged)' : target));
             console.groupEnd();
