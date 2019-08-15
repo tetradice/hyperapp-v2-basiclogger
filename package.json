@@ -13,7 +13,7 @@
   ],
   "repository": "https://github.com/tetradice/hyperapp-v2-basiclogger",
   "author": "Dice <tetradice@gmail.com>",
-  "license": "UNLICENSE",
+  "license": "UNLICENSED",
   "devDependencies": {
     "typescript": "^3.5.3"
   }
