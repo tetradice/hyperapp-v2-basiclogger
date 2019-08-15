@@ -37,6 +37,6 @@ export default function(baseDispatch){
             prevState = target;
         }
 
-        baseDispatch(target, props);
+        return baseDispatch(target, props);
     }
 } 

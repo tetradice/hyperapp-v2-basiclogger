@@ -4,7 +4,17 @@
   "description": "Basic logging middleware for hyperapp V2",
   "main": "index.js",
   "module": "index.js",
+  "typings": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": "https://github.com/tetradice/hyperapp-v2-basiclogger",
   "author": "Dice <tetradice@gmail.com>",
-  "license": "UNLICENSE"
+  "license": "UNLICENSE",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
 }
