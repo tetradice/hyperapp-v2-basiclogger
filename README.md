@@ -72,7 +72,7 @@ function customLogger(type, params){
             // - params.oldState
             // - params.newState  
             // - params.changed    (true if prevState and nextState are different, false otherwise)
-            // - params.effects    (if no effect has occurred,, it is undefined)
+            // - params.effects    (if no effect has occurred, it is undefined)
 
             break;
     }
