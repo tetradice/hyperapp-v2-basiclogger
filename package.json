@@ -1,0 +1,10 @@
+{
+  "name": "hyperapp-v2-basiclogger",
+  "version": "0.1.0",
+  "description": "Basic logging middleware for hyperapp V2",
+  "main": "index.js",
+  "module": "index.js",
+  "repository": "https://github.com/tetradice/hyperapp-v2-basiclogger",
+  "author": "Dice <tetradice@gmail.com>",
+  "license": "UNLICENSE"
+}
