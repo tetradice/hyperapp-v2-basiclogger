@@ -1,8 +1,9 @@
 "use strict";
 
 import { defaultLogger } from "./defaultLogger";
+export { defaultLogger } from "./defaultLogger";
 
-export function createLoggerMiddleware(loggerFunction){
+export function createLoggerMiddleware(loggerFunction) {
     return function (baseDispatch) {
         var oldState = undefined;
         var reservedDefaultPayload = undefined;
