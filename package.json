@@ -1,15 +1,20 @@
 {
   "name": "hyperapp-v2-basiclogger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Basic logging middleware for hyperapp V2",
   "main": "src/index.js",
   "module": "src/index.js",
+  "unpkg": "src/index.js",
+  "browser": "src/index.js",
   "typings": "index.d.ts",
   "files": [
     "src",
     "index.d.ts",
     "README.md",
     "LICENSE"
+  ],
+  "keywords": [
+    "hyperapp"
   ],
   "repository": "https://github.com/tetradice/hyperapp-v2-basiclogger",
   "author": "Dice <tetradice@gmail.com>",
