@@ -69,18 +69,10 @@ function customLogger(type, params){
 
         case "state": // Update state
             // The following parameters are available:
-            // - params.prevState
-            // - params.nextState  
+            // - params.oldState
+            // - params.newState  
             // - params.changed    (true if prevState and nextState are different, false otherwise)
-
-            break;
-
-        case "stateAndEffects": // Update state and invoke effects
-            // The following parameters are available:
-            // - params.prevState
-            // - params.nextState  
-            // - params.changed    (true if prevState and nextState are different, false otherwise)
-            // - params.effects
+            // - params.effects    (if no effect has occurred,, it is undefined)
 
             break;
     }
