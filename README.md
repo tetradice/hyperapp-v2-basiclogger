@@ -1,6 +1,6 @@
 # hyperapp-v2-basiclogger
 
-`hyperapp-v2-basiclogger` is basic logger middleware for [hyperapp V2](https://github.com/jorgebucaran/hyperapp).
+`hyperapp-v2-basiclogger` is basic logging middleware for [hyperapp V2](https://github.com/jorgebucaran/hyperapp).
 
 ## Install
 
