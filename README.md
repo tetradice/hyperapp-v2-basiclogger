@@ -32,7 +32,7 @@ app({
 });
 ```
 
-## Advanced: custom logger
+## Advanced: Custom logger
 
 You can create middleware based on your own logger function by using `createLoggerMiddleware` function. This allows you to change the output format and destination.
 
