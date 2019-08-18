@@ -2,6 +2,8 @@
 
 `hyperapp-v2-basiclogger` is basic logging middleware for [hyperapp V2](https://github.com/jorgebucaran/hyperapp).
 
+You can try it online [here](https://codesandbox.io/s/hyperapp-v2-basiclogger-demo-c7y4j?fontsize=14). (Please open browser console window)
+
 ## Install
 
 ```sh
