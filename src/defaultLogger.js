@@ -17,7 +17,6 @@ export function defaultLogger(type, params) {
                 console.log("%c      custom payload: %o", "color: #4CAF50; font-weight: bold;", params.customPayload);
             } else {
                 console.log("%c     default payload: %o", "color: #03A9F4; font-weight: bold;", params.defaultPayload);
-                console.log("%c      custom payload: %cnone", "color: #4CAF50; font-weight: bold;", "color: gray;");
             }
             var detailOfFunctions = { action: params.action };
             if (params.payloadCreator !== undefined) {
@@ -46,13 +45,12 @@ export function defaultLogger(type, params) {
             }
 
             if (params.effects !== undefined) {
-                var displayEffects = [];
                 for (var i = 0; i < params.effects.length; i++) {
                     var effect = params.effects[i];
-                    displayEffects.push({ runner: effect[0], props: effect[1] });
+                    console.log("%c effect %d: %c%s", "color: #C060C0; font-weight: bold;", i + 1, "color: black;", getFunctionName(effect[0]));
+                    console.log("%c   - props: %o", "color: gray;", effect[1]);
+                    console.log("%c   - detail of functions: %o", "color: gray;", { runner: effect[0] });
                 }
-
-                console.log("%c  effects: %o", "color: #03A9F4; font-weight: bold;", displayEffects);
             }
 
             break;
