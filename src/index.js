@@ -12,6 +12,8 @@ export function createLoggerMiddleware(loggerFunction) {
         var loggerFunction = defaultLogger;
 
         return function (target, props) {
+            var result = undefined;
+            
             if (typeof target === "function") {
                 // Invoke action
                 if (reservedDefaultPayload !== undefined) {
@@ -28,25 +30,34 @@ export function createLoggerMiddleware(loggerFunction) {
                     // without custom payload
                     loggerFunction("action", { action: target, defaultPayload: props });
                 }
+
+                result = baseDispatch(target, props);
+                loggerFunction("actionEnd", undefined);
+
             } else if (Array.isArray(target)) {
                 if (typeof target[0] === "function") {
                     // Invoke action (with payload) - delayed until next dispatch
                     reservedDefaultPayload = props;
                     reservedCustomPayload = target[1];
+                    result = baseDispatch(target, props);
                 } else {
                     // Update state and invoke effects
                     loggerFunction("state", { oldState: oldState, newState: target[0], changed: oldState === target[0], effects: target.slice(1) });
+                    result = baseDispatch(target, props);
+                    loggerFunction("stateEnd", undefined);
 
                     oldState = target[0];
                 }
             } else {
                 // Update state
                 loggerFunction("state", { oldState: oldState, newState: target, changed: oldState === target });
+                result = baseDispatch(target, props);
+                loggerFunction("stateEnd", undefined);
 
                 oldState = target;
             }
 
-            return baseDispatch(target, props);
+            return result;
         }
     }
 }

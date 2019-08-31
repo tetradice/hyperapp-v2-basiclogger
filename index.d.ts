@@ -1,4 +1,4 @@
-export type LoggerFunction = (type: ('action' | 'state'), params: {
+export type LoggerFunction = (type: ('action' | 'state' | 'actionEnd' | 'stateEnd'), params: {
     action: Function
     , defaultPayload: any
     , payloadCreator: Function

@@ -26,8 +26,10 @@ export function defaultLogger(type, params) {
             console.log("%c detail of functions: %o", "color: #9E9E9E; font-weight: bold;", detailOfFunctions);
             console.log("%c                  at: %c%s", "color: #9E9E9E; font-weight: bold;", "color: #9E9E9E; font-weight: lighter;", getTimestamp());
 
-            console.groupEnd();
+            break;
 
+        case "actionEnd":
+            console.groupEnd();
             break;
 
         case "state":
@@ -53,7 +55,12 @@ export function defaultLogger(type, params) {
                 console.log("%c  effects: %o", "color: #03A9F4; font-weight: bold;", displayEffects);
             }
 
+            break;
+
+        case "stateEnd":
             console.groupEnd();
             break;
+
+
     }
 }

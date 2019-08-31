@@ -69,6 +69,10 @@ function customLogger(type, params){
 
             break;
 
+        case "actionEnd":
+            console.groupEnd();
+            break;
+
         case "state": // Update state
             // The following parameters are available:
             // - params.oldState
@@ -77,6 +81,11 @@ function customLogger(type, params){
             // - params.effects    (if no effect has occurred, it is undefined)
 
             break;
+
+        case "stateEnd":
+            console.groupEnd();
+            break;
+
     }
 }
 
