@@ -4,12 +4,12 @@ import { defaultLogger } from "./defaultLogger";
 export { defaultLogger } from "./defaultLogger";
 
 export function createLoggerMiddleware(loggerFunction) {
+    if (loggerFunction === undefined) loggerFunction = defaultLogger;
+
     return function (baseDispatch) {
         var oldState = undefined;
         var reservedDefaultPayload = undefined;
         var reservedCustomPayload = undefined;
-
-        var loggerFunction = defaultLogger;
 
         return function (target, props) {
             var result = undefined;
