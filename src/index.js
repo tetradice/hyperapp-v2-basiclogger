@@ -11,7 +11,7 @@ export function createLoggerMiddleware(loggerFunction) {
         var reservedDefaultPayload = undefined;
         var reservedCustomPayload = undefined;
 
-        return function (target, props) {
+        return function (target, props, defaultPayload) {
             var result = undefined;
             
             if (typeof target === "function") {
@@ -31,7 +31,7 @@ export function createLoggerMiddleware(loggerFunction) {
                     loggerFunction("action", { action: target, defaultPayload: props });
                 }
 
-                result = baseDispatch(target, props);
+                result = baseDispatch(target, props, defaultPayload);
                 loggerFunction("actionEnd", undefined);
 
             } else if (Array.isArray(target)) {
@@ -39,11 +39,11 @@ export function createLoggerMiddleware(loggerFunction) {
                     // Invoke action (with payload) - delayed until next dispatch
                     reservedDefaultPayload = props;
                     reservedCustomPayload = target[1];
-                    result = baseDispatch(target, props);
+                    result = baseDispatch(target, props, defaultPayload);
                 } else {
                     // Update state and invoke effects
                     loggerFunction("state", { oldState: oldState, newState: target[0], changed: oldState === target[0], effects: target.slice(1) });
-                    result = baseDispatch(target, props);
+                    result = baseDispatch(target, props, defaultPayload);
                     loggerFunction("stateEnd", undefined);
 
                     oldState = target[0];
@@ -51,7 +51,7 @@ export function createLoggerMiddleware(loggerFunction) {
             } else {
                 // Update state
                 loggerFunction("state", { oldState: oldState, newState: target, changed: oldState === target });
-                result = baseDispatch(target, props);
+                result = baseDispatch(target, props, defaultPayload);
                 loggerFunction("stateEnd", undefined);
 
                 oldState = target;

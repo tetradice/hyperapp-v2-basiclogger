@@ -1,7 +1,7 @@
 {
-  "name": "hyperapp-v2-basiclogger",
-  "version": "0.3.1",
-  "description": "Basic logging middleware for hyperapp V2",
+  "name": "hyperionapp-logger",
+  "version": "0.4.0",
+  "description": "Basic logging middleware for hyperionapp",
   "main": "src/index.js",
   "module": "src/index.js",
   "unpkg": "src/index.js",
@@ -14,7 +14,8 @@
     "LICENSE"
   ],
   "keywords": [
-    "hyperapp"
+    "hyperapp",
+    "hyperionapp"
   ],
   "repository": "https://github.com/tetradice/hyperapp-v2-basiclogger",
   "author": "Dice <tetradice@gmail.com>",
